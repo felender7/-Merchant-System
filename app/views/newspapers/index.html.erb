@@ -1,0 +1,50 @@
+
+
+
+<div class="row mt-5 shadow-sm p-2 bg-dark text-light rounded mb-0">
+  <div class="col-sm-6">
+    <h4>Newspapers</h4>
+  </div>
+
+  <div class="col-sm-6 text-right">
+  <%= link_to new_newspaper_path, class: 'btn btn-primary' do %>
+    Add New Newspaper
+  <% end %>
+  </div>
+</div>
+
+<div class="table-responsive shadow-sm  p-3 bg-light">
+  <table class="table table-hover  ">
+    <thead>
+      <tr>
+            <th>Daily sun</th>
+            <th>City press</th>
+            <th>Sunday sun</th>
+            <th>Soccer laduma</th>
+            <th></th>
+
+          <th></th>
+
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @newspapers.each do |newspaper| %>
+        <%= content_tag :tr, id: dom_id(newspaper), class: dom_class(newspaper) do %>
+
+
+                      <td><%= newspaper.quantity %></td>
+                      <td><%= newspaper.quantity_2 %></td>
+                      <td><%= newspaper.quantity_3 %></td>
+                      <td><%= newspaper.quantity_4 %></td>
+                      <td><span class="bg-danger p-2 text-light"><%=time_ago_in_words(newspaper.created_at) +" ago" %></span></td>
+
+
+
+            <td><%= link_to 'Show', newspaper %></td>
+
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

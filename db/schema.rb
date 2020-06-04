@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_03_125533) do
+ActiveRecord::Schema.define(version: 2020_06_04_130304) do
 
   create_table "announcements", force: :cascade do |t|
     t.datetime "published_at"
@@ -19,6 +19,20 @@ ActiveRecord::Schema.define(version: 2020_06_03_125533) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "details", force: :cascade do |t|
+    t.string "shop_name"
+    t.string "email"
+    t.string "phone"
+    t.string "address_1"
+    t.string "address_2"
+    t.string "address_3"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "slug"
+    t.integer "user_id"
+    t.index ["slug"], name: "index_details_on_slug", unique: true
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -30,6 +44,42 @@ ActiveRecord::Schema.define(version: 2020_06_03_125533) do
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
+  create_table "merchant_requests", force: :cascade do |t|
+    t.string "merchant_type"
+    t.string "quantity"
+    t.string "slug"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.index ["slug"], name: "index_merchant_requests_on_slug", unique: true
+  end
+
+  create_table "news_papers", force: :cascade do |t|
+    t.string "daily_sun"
+    t.string "city_press"
+    t.string "sunday_sun"
+    t.string "soccer_laduma"
+    t.string "slug"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["slug"], name: "index_news_papers_on_slug", unique: true
+  end
+
+  create_table "newspapers", force: :cascade do |t|
+    t.string "daily_sun"
+    t.string "city_press"
+    t.string "sunday_sun"
+    t.string "soccer_laduma"
+    t.string "quantity"
+    t.string "slug"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "quantity_2"
+    t.string "quantity_3"
+    t.string "quantity_4"
+    t.index ["slug"], name: "index_newspapers_on_slug", unique: true
   end
 
   create_table "notifications", force: :cascade do |t|

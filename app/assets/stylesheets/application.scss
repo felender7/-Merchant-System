@@ -7,6 +7,8 @@
 @import "bootstrap";
 @import "jumpstart/sticky-footer";
 @import "jumpstart/announcements";
+@import "navscroll";
+@import "multiselect";
 
 // Fixes bootstrap nav-brand container overlap
 @include media-breakpoint-down(xs) {
@@ -19,4 +21,7 @@
 // Masquerade alert shouldn't have a bottom margin
 body > .alert {
   margin-bottom: 0;
+}
+body{
+  background: #ecf0f1;
 }

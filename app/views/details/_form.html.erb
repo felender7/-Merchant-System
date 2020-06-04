@@ -1,0 +1,59 @@
+<%= form_with(model: detail, local: true) do |form| %>
+  <% if detail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(detail.errors.count, "error") %> prohibited this detail from being saved:</h2>
+
+      <ul>
+      <% detail.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :shop_name %>
+    <%= form.text_field :shop_name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :email %>
+    <%= form.text_field :email, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :phone %>
+    <%= form.text_field :phone, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :address_1 %>
+    <%= form.text_field :address_1, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :address_2 %>
+    <%= form.text_field :address_2, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :address_3 %>
+    <%= form.text_field :address_3, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <% if detail.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', detail, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if detail.persisted? %>
+      <%= link_to "Cancel", detail, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", details_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>

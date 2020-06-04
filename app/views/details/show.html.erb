@@ -1,0 +1,30 @@
+<div class="page-header">
+  <%= link_to details_path, class: 'btn btn-default' do %>
+    All Details
+  <% end %>
+  <%= link_to edit_detail_path(@detail), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <h1>Show detail</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Shop name:</dt>
+  <dd><%= @detail.shop_name %></dd>
+
+  <dt>Email:</dt>
+  <dd><%= @detail.email %></dd>
+
+  <dt>Phone:</dt>
+  <dd><%= @detail.phone %></dd>
+
+  <dt>Address 1:</dt>
+  <dd><%= @detail.address_1 %></dd>
+
+  <dt>Address 2:</dt>
+  <dd><%= @detail.address_2 %></dd>
+
+  <dt>Address 3:</dt>
+  <dd><%= @detail.address_3 %></dd>
+
+</dl>

@@ -1,0 +1,25 @@
+<div class="page-header">
+  <%= link_to newspapers_path, class: 'btn btn-default' do %>
+    All Newspapers
+  <% end %>
+  <%= link_to edit_newspaper_path(@newspaper), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <h1>Show newspaper</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Daily sun:</dt>
+  <dd><%= @newspaper.daily_sun %></dd>
+  <dd><%= @newspaper.quantity %></dd>
+  <dt>City press:</dt>
+  <dd><%= @newspaper.city_press %></dd>
+  <dd><%= @newspaper.quantity_2 %></dd>
+  <dt>Sunday sun:</dt>
+  <dd><%= @newspaper.sunday_sun %></dd>
+  <dd><%= @newspaper.quantity_3 %></dd>
+  <dt>Soccer laduma:</dt>
+  <dd><%= @newspaper.soccer_laduma %></dd>
+  <dd><%= @newspaper.quantity_4 %></dd>
+
+</dl>

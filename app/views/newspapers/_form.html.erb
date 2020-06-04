@@ -1,0 +1,104 @@
+
+<div class="dropdown">
+<%= form_with(model: newspaper, local: true) do |form| %>
+  <% if newspaper.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(newspaper.errors.count, "error") %> prohibited this newspaper from being saved:</h2>
+
+      <ul>
+      <% newspaper.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+  <input type="text" id="droptxt" class="list form-control" readonly>
+  </div>
+  <div id="content" class="content">
+  <div class="list">
+    <input type="checkbox" id="daily_sun" class="list" value="Daily Sun" />
+    <%= form.label :daily_sun, :class => "list" %>
+    <%=form.hidden_field :quantity, class:"list quantity", min:"1", value:"1"%>
+  </div>
+
+  <div class="list">
+    <input type="checkbox" id="city_press" class="list" value="City Press" />
+    <%= form.label :city_press,:class => "list"  %>
+    <%=form.hidden_field :quantity_2, class:"list quantity", min:"1", value:"1"%>
+  </div>
+
+  <div class="list">
+    <input type="checkbox" id="sunday_sun" class="list" value="Sunday Sun" />
+    <%= form.label :sunday_sun ,:class => "list" %>
+    <%=form.hidden_field :quantity_3, class:"list quantity", min:"1", value:"1"%>
+  </div>
+
+  <div class="list">
+    <input type="checkbox" id="soccer_laduma" class="list" value="Soccer Laduma" />
+    <%= form.label :soccer_laduma %>
+    <%=form.hidden_field :quantity_4, class:"list quantity", min:"1", value:"1"%>
+  </div>
+</div>
+  <div class="form-group">
+    <% if newspaper.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', newspaper, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+           <%= form.submit class: 'btn btn-primary' %>
+
+
+
+    <% if newspaper.persisted? %>
+      <%= link_to "Cancel", newspaper, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", newspapers_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>
+
+</div>
+
+
+
+
+
+<script type="text/javascript">
+  var txt = document.getElementById( 'droptxt' ),
+    content = document.getElementById( 'content' ),
+    list = document.querySelectorAll( '.content input[type="checkbox"]' ),
+    quantity = document.querySelectorAll( '.quantity' );
+
+txt.addEventListener( 'click', function() {
+    content.classList.toggle( 'show' )
+} )
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function( e ) {
+    if ( !e.target.matches( '.list' ) ) {
+        if ( content.classList.contains( 'show' ) ) content.classList.remove( 'show' )
+    }
+}
+
+list.forEach( function( item, index ) {
+    item.addEventListener( 'click', function() {
+        quantity[ index ].type = ( item.checked ) ? 'number' : 'hidden';
+        calc()
+    } )
+} )
+
+quantity.forEach( function( item ) {
+    item.addEventListener( 'input', calc )
+} )
+
+function calc() {
+    for ( var i = 0, arr = []; i < list.length; i++ ) {
+        if ( list[ i ].checked ) arr.push( quantity[ i ].value + ' x ' + list[ i ].value )
+    }
+
+    txt.value = arr.join( ', ' )
+}
+</script>

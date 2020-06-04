@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  daily_sun: MyString
+  city_press: MyString
+  sunday_sun: MyString
+  soccer_laduma: MyString
+  quantity: MyString
+  slug: MyString
+
+two:
+  daily_sun: MyString
+  city_press: MyString
+  sunday_sun: MyString
+  soccer_laduma: MyString
+  quantity: MyString
+  slug: MyString

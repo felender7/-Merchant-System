@@ -1,0 +1,39 @@
+
+
+
+<div class="row mt-5 shadow-sm p-2 bg-dark text-light rounded mb-0">
+  <div class="col-sm-6">
+    <h4>Merchant Requests</h4>
+  </div>
+
+  <div class="col-sm-6 text-right">
+  <%= link_to new_merchant_request_path, class: 'btn btn-primary' do %>
+     New Merchant Request
+  <% end %>
+  </div>
+</div>
+
+<div class="table-responsive shadow-sm  p-3 bg-light">
+  <table class="table  table-hover">
+    <thead>
+      <tr>
+            <th>Merchant type</th>
+            <th>Quantity</th>
+            <th>Status</th>
+          <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @merchant_requests.each do |merchant_request| %>
+        <%= content_tag :tr, id: dom_id(merchant_request), class: dom_class(merchant_request) do %>
+                      <td><%= merchant_request.merchant_type %></td>
+                      <td><%= merchant_request.quantity %></td>
+                      <td><span class="bg-danger p-2 text-light">Pending</td>
+            <td><i class="fas fa-list"></i> <%= link_to 'Show', merchant_request %></td>
+
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

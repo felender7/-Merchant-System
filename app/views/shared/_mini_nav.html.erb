@@ -1,0 +1,18 @@
+<%if user_signed_in?%>
+<div class="nav-scroller bg-white box-shadow">
+  <nav class="nav nav-underline">
+
+    <%=link_to root_path, class:"nav-link active" do %>
+    <i class="fas fa-tachometer-alt"></i> Dashboard
+    <%end%>
+
+    <%if current_user.admin?%>
+    admin
+      <%else%>
+
+    <a class="nav-link" href="/"><i class="far fa-list-alt"></i> Track </a>
+   <%end%>
+
+  </nav>
+</div>
+<%end%>

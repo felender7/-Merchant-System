@@ -5,9 +5,11 @@
   </div>
 <% end %>
 
-<nav class="navbar navbar-expand-md navbar-light bg-light">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
   <div class="container">
-    <%= link_to Rails.configuration.application_name, root_path, class: "navbar-brand" %>
+    <%= link_to root_path, class: "navbar-brand" do %>
+    <i class="fab fa-centos"></i> Merchant System
+    <%end%>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>

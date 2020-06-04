@@ -1,0 +1,25 @@
+<small>
+<div class="table-responsive">
+  <table class="table  table-hover">
+    <thead>
+      <tr>
+            <th>Merchant type</th>
+            <th>Quantity</th>
+            <th>Status</th>
+          <th></th>
+
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @merchant_requests.each do |merchant_request| %>
+        <%= content_tag :tr, id: dom_id(merchant_request), class: dom_class(merchant_request) do %>
+                      <td><%= merchant_request.merchant_type %></td>
+                      <td><%= merchant_request.quantity %></td>
+                      <td><span class="bg-danger p-2 text-light">Pending</td>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+</small>
